@@ -1,5 +1,6 @@
 'use client';
 
+import Head from 'next/head';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
