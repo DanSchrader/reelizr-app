@@ -14,6 +14,9 @@ const themeOptions: ThemeOptions = {
             default: '#1f1f1f',
             paper: '#2c2a29'
         },
+        text: {
+            primary: '#fefbe4',
+        }
     },
     typography: {
         fontFamily: "'Roboto', 'sans-serif'",

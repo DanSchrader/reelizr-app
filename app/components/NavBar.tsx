@@ -13,8 +13,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import styled from '@mui/material/styles/styled';
 import Button from '@mui/material/Button';
+import Link from 'next/link';
 import { Page } from '../types';
 
 interface Props {
@@ -56,15 +57,14 @@ export default function NavBar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Reelizr
-      </Typography>
       <Divider />
       <List>
         {pages.map((item) => (
           <ListItem key={item.title} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item.title} />
+              <Link href={item.slug}>
+                <ListItemText primary={item.title} />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -74,39 +74,47 @@ export default function NavBar(props: Props) {
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
+  const StyledToolbar = styled(Toolbar)({
+    display: 'flex',
+    justifyContent: 'space-between',
+  });
+
+  const StyledNavButton = styled(Button)({
+    color: '#fefbe4'
+  });
+
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position='sticky' component="nav">
-        <Toolbar>
-          <IconButton
+        <StyledToolbar>
+          <Button href='/'>
+            <Box component='img' alt='Reelizr-Logo' src='./reelizr-logo.svg' width='120px' />
+          </Button>
+            <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ display: { sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            Reelizr
-          </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {pages.map((item) => (
-              <Button key={item.title}>
-                {item.title}
-              </Button>
+              <StyledNavButton key={item.title}>
+                <Link href={item.slug}>
+                  {item.title}
+                </Link>
+              </StyledNavButton>
             ))}
           </Box>
-        </Toolbar>
+        </StyledToolbar>
       </AppBar>
       <Box component="nav">
         <Drawer
           container={container}
           variant="temporary"
+          anchor='right'
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
