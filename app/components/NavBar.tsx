@@ -88,7 +88,7 @@ export default function NavBar(props: Props) {
       <AppBar position='sticky' component="nav">
         <StyledToolbar>
           <Button href='/'>
-            <Box component='img' alt='Reelizr-Logo' src='./reelizr-logo.svg' width='120px' />
+            <Box component='img' alt='Reelizr-Logo' src='./reelizr-logo.svg' width='120px' height='auto'/>
           </Button>
             <IconButton
             color="inherit"
