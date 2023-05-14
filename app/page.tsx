@@ -6,10 +6,15 @@ import Box from '@mui/material/Box';
 
 export default function Home() {
     return (
-        <Box component='main'>
-            <Typography>
-                Home
-            </Typography>            
-        </Box>
+        <>
+            <Head>
+                <title>Reelizr</title>
+            </Head>
+            <Box component='main'>
+                <Typography>
+                    Home
+                </Typography>            
+            </Box>
+        </>
     )
 };
