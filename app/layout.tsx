@@ -18,6 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
+    <title>
+      Reelizr
+    </title>
+    <meta 
+      name='description'
+      content='Reelizr: Deutschlands Top-Netzwerk-Hub für Brand Video Production. Vernetzen Sie sich mit Profis und steigern Sie Ihren Markenerfolg durch Business-Videos.'
+      key='desc'
+    />
       <body>
         <ThemeProvider theme={defaultTheme}>
           <CssBaseline />
