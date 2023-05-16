@@ -15,6 +15,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import styled from '@mui/material/styles/styled';
 import Button from '@mui/material/Button';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import { Page } from '../types';
 
@@ -30,6 +33,23 @@ const pages: Page[] = [
     {
         title: 'Services',
         slug: '/services',
+        subPages: [{
+          title: 'Brand-Video',
+          slug: '/brand-video',
+        },
+        {
+          title: 'Veranstaltungsvideos',
+          slug: '/veranstaltungsvideo',
+        },
+        {
+          title: 'Drohnenaufnahmen',
+          slug: '/brand-video',
+        },
+        {
+          title: 'Business-Podcasts',
+          slug: '/brand-video',
+        },
+      ],
     },
     {
         title: 'Blog',
@@ -50,6 +70,17 @@ const drawerWidth = 240;
 export default function NavBar(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const open = Boolean(anchorEl);
+
+  const handleDropdownClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleDropdownClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -80,8 +111,12 @@ export default function NavBar(props: Props) {
   });
 
   const StyledNavButton = styled(Button)({
-    color: '#fefbe4'
+    color: '#fefbe4',
   });
+
+  const StyledDropdownButton = styled(IconButton)({
+    margin: 0,
+  })
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -100,13 +135,44 @@ export default function NavBar(props: Props) {
             <MenuIcon />
           </IconButton>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {pages.map((item) => (
+            {pages.map((item, index) => (
               <StyledNavButton key={item.title}>
                 <Link href={item.slug}>
                   {item.title}
                 </Link>
+
+                {item.subPages 
+                ? <StyledDropdownButton 
+                  key={index}
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleDropdownClick}>
+                    <ArrowDropDownIcon />
+                  </StyledDropdownButton> 
+                : null}
+
               </StyledNavButton>
             ))}
+            <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleDropdownClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+            >
+              {pages.map((page) =>
+                page.subPages
+                ? page.subPages.map((subPage) => (
+                  <MenuItem key={subPage.title} onClick={handleDropdownClose}>
+                    {subPage.title}
+                  </MenuItem>
+                ))
+                : null
+)}
+            </Menu>
           </Box>
         </StyledToolbar>
       </AppBar>
