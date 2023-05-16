@@ -19,56 +19,11 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
-import { Page } from '../types';
-
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-}
-
-const pages: Page[] = [
-    {
-        title: 'Services',
-        slug: '/services',
-        subPages: [{
-          title: 'Brand-Video',
-          slug: '/brand-video',
-        },
-        {
-          title: 'Veranstaltungsvideos',
-          slug: '/veranstaltungsvideo',
-        },
-        {
-          title: 'Drohnenaufnahmen',
-          slug: '/brand-video',
-        },
-        {
-          title: 'Business-Podcasts',
-          slug: '/brand-video',
-        },
-      ],
-    },
-    {
-        title: 'Blog',
-        slug: '/blog',
-    },
-    {
-        title: 'About',
-        slug: '/about', 
-    },
-    {
-        title: 'Kontakt',
-        slug: '/kontakt',
-    }
-];
+import Pages from './Pages';
 
 const drawerWidth = 240;
 
-export default function NavBar(props: Props) {
-  const { window } = props;
+export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -90,7 +45,7 @@ export default function NavBar(props: Props) {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Divider />
       <List>
-        {pages.map((item) => (
+        {Pages.map((item) => (
           <ListItem key={item.title} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <Link href={item.slug}>
@@ -102,8 +57,6 @@ export default function NavBar(props: Props) {
       </List>
     </Box>
   );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
 
   const StyledToolbar = styled(Toolbar)({
     display: 'flex',
@@ -134,25 +87,30 @@ export default function NavBar(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {pages.map((item, index) => (
-              <StyledNavButton key={item.title}>
-                <Link href={item.slug}>
-                  {item.title}
-                </Link>
-
+          <Box sx={{ 
+            display: { xs: 'none', sm: 'flex' },
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+            {Pages.map((item, index) => (
+              <Box key={index}>
+                <StyledNavButton>
+                  <Link href={item.slug}>
+                    {item.title}
+                  </Link>
+                </StyledNavButton>
                 {item.subPages 
-                ? <StyledDropdownButton 
-                  key={index}
-                  aria-controls={open ? 'basic-menu' : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? 'true' : undefined}
-                  onClick={handleDropdownClick}>
-                    <ArrowDropDownIcon />
-                  </StyledDropdownButton> 
-                : null}
-
-              </StyledNavButton>
+                  ? <StyledDropdownButton 
+                    key={index}
+                    aria-controls={open ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleDropdownClick}>
+                      <ArrowDropDownIcon />
+                    </StyledDropdownButton> 
+                  : null}
+                </Box>
             ))}
             <Menu
             id="basic-menu"
@@ -163,22 +121,23 @@ export default function NavBar(props: Props) {
               'aria-labelledby': 'basic-button',
             }}
             >
-              {pages.map((page) =>
+              {Pages.map((page) =>
                 page.subPages
                 ? page.subPages.map((subPage) => (
                   <MenuItem key={subPage.title} onClick={handleDropdownClose}>
-                    {subPage.title}
+                    <StyledNavButton>
+                      <Link href={subPage.slug}>{subPage.title}</Link>
+                    </StyledNavButton>
                   </MenuItem>
                 ))
                 : null
-)}
+              )}
             </Menu>
           </Box>
         </StyledToolbar>
       </AppBar>
       <Box component="nav">
         <Drawer
-          container={container}
           variant="temporary"
           anchor='right'
           open={mobileOpen}
