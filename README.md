@@ -18,3 +18,10 @@ Open [http://localhost:3000/admin](http://localhost:3000) with your browser to g
 
 Visit [https://reelizr-app.vercel.app/](https://reelizr-app.vercel.app/) to watch the latest production stage without installing the project locally.
 
+## Tech
+
+- NextJS
+- TypeScript
+- Material UI
+- Sanity
+
