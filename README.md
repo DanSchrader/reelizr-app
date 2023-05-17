@@ -14,7 +14,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Open [http://localhost:3000/admin](http://localhost:3000) with your browser to get to the Sanity backend "Reelizr App Studio".
+Invited co-workers can open [http://localhost:3000/admin](http://localhost:3000) with their browser to get to the Sanity backend "Reelizr App Studio".
 
 Visit [https://reelizr-app.vercel.app/](https://reelizr-app.vercel.app/) to watch the latest production stage without installing the project locally.
 
