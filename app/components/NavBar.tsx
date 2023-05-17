@@ -13,7 +13,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import styled from '@mui/material/styles/styled';
 import Button from '@mui/material/Button';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Menu from '@mui/material/Menu';
@@ -58,23 +57,13 @@ export default function NavBar() {
     </Box>
   );
 
-  const StyledToolbar = styled(Toolbar)({
-    display: 'flex',
-    justifyContent: 'space-between',
-  });
-
-  const StyledNavButton = styled(Button)({
-    color: '#fefbe4',
-  });
-
-  const StyledDropdownButton = styled(IconButton)({
-    margin: 0,
-  })
-
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position='sticky' component="nav">
-        <StyledToolbar>
+        <Toolbar sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}>
           <Button href='/'>
             <Box component='img' alt='Reelizr-Logo' src='./reelizr-logo.svg' width='120px' />
           </Button>
@@ -95,20 +84,26 @@ export default function NavBar() {
           }}>
             {Pages.map((item, index) => (
               <Box key={index}>
-                <StyledNavButton>
+                <Button sx={{
+                  color: '#fefbe4',
+                }}>
                   <Link href={item.slug}>
                     {item.title}
                   </Link>
-                </StyledNavButton>
+                </Button>
                 {item.subPages 
-                  ? <StyledDropdownButton 
+                  ? <IconButton 
                     key={index}
                     aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
-                    onClick={handleDropdownClick}>
+                    onClick={handleDropdownClick}
+                    sx={{
+                      margin: 0,
+                    }}
+                    >
                       <ArrowDropDownIcon />
-                    </StyledDropdownButton> 
+                    </IconButton> 
                   : null}
                 </Box>
             ))}
@@ -125,16 +120,18 @@ export default function NavBar() {
                 page.subPages
                 ? page.subPages.map((subPage) => (
                   <MenuItem key={subPage.title} onClick={handleDropdownClose}>
-                    <StyledNavButton>
+                    <Button sx={{
+                      color: '#fefbe4',
+                    }}>
                       <Link href={subPage.slug}>{subPage.title}</Link>
-                    </StyledNavButton>
+                    </Button>
                   </MenuItem>
                 ))
                 : null
               )}
             </Menu>
           </Box>
-        </StyledToolbar>
+        </Toolbar>
       </AppBar>
       <Box component="nav">
         <Drawer
