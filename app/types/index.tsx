@@ -4,6 +4,7 @@ export interface Page {
     title: string,
     subPages?: Page[],
     slug: string,
+    id: string,
     isActive?: boolean,
 };
 
