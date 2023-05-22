@@ -7,9 +7,13 @@ import Box from '@mui/material/Box';
 export default function Drohnenaufnahmen() {
     return (
         <Box component='main'>
-            <Typography>
-                Drohnenaufnahmen
-            </Typography>            
+            <Box sx={{
+                    margin: '10vh 5vw auto 5vw',
+            }}>
+                <Typography>
+                    Drohnenaufnahmen
+                </Typography>  
+            </Box>          
         </Box>
     )
 };
