@@ -7,9 +7,13 @@ import Box from '@mui/material/Box';
 export default function BusinessPodcasts() {
     return (
         <Box component='main'>
-            <Typography>
-                Business-Podcasts
-            </Typography>            
+            <Box sx={{
+                    margin: '10vh 5vw auto 5vw',
+            }}>
+                <Typography>
+                    Business-Podcasts
+                </Typography>  
+            </Box>          
         </Box>
     )
 };

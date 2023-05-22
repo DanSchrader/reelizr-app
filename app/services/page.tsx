@@ -6,9 +6,13 @@ import Typography from '@mui/material/Typography';
 export default function Services() {
     return (
         <Box component='main'>
-            <Typography>
-                Services
-            </Typography>
+            <Box sx={{
+                    margin: '10vh 5vw auto 5vw',
+            }}>
+                <Typography>
+                    Services
+                </Typography>  
+            </Box>          
         </Box>
     )
 }
