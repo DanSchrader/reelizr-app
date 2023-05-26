@@ -1,6 +1,8 @@
 import { createTheme, ThemeOptions } from '@mui/material/styles';
 import '@fontsource/roboto';
 
+const baseTheme = createTheme();
+
 const themeOptions: ThemeOptions = {
     palette: {
         mode: 'dark',
@@ -19,7 +21,35 @@ const themeOptions: ThemeOptions = {
         }
     },
     typography: {
-        fontFamily: "'Roboto', 'sans-serif'",
+        fontFamily: 'Roboto, sans-serif',
+        h1: {
+            fontSize: '1.6rem',
+            '@media (min-width:600px)': {
+                fontSize: '2rem',
+            },
+            [baseTheme.breakpoints.up('md')]: {
+                fontSize: '2.8rem',
+            },
+            fontWeight: 700,
+        },
+        h2: {
+            fontSize: '0.9rem',
+            '@media (min-width:600px)': {
+                fontSize: '1.2rem',
+            },
+            [baseTheme.breakpoints.up('md')]: {
+                fontSize: '1.5rem',
+            },
+        },
+        body1: {
+            fontSize: '0.8rem',
+            '@media (min-width:600px)': {
+                fontSize: '1rem',
+            },
+            [baseTheme.breakpoints.up('md')]: {
+                fontSize: '1.2rem',
+            },
+        }
     },
 };
 
