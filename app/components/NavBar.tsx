@@ -103,7 +103,7 @@ export default function NavBar() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position='fixed' component="nav">
+      <AppBar position='sticky' component="nav">
         <Toolbar sx={{
           display: 'flex',
           justifyContent: 'space-between',
