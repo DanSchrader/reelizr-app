@@ -21,7 +21,7 @@ export default function Home() {
                         />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                        <Grid container spacing={1} textAlign='center'>
+                        <Grid container spacing={2} textAlign='center'>
                             <Grid item xs={12}>
                                 <Typography component='h2' variant='h2' color='secondary'>
                                         UNTERNEHMENSPRÄSENTATION
@@ -33,11 +33,14 @@ export default function Home() {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <Typography>
-                                Steigern Sie Ihren Brand-Value: Mit maßgeschneiderten Unternehmens- und Produktvideos, Drohnenaufnahmen und Podcasts fördern wir Kundenbindung und Markenbekanntheit. Entdecken Sie die Kraft der visuellen Kommunikation.
+                                <Typography sx={{ 
+                                    maxWidth: '75%', 
+                                    margin: '0 auto',
+                                    }}>
+                                Steigern Sie Ihren Brand-Value: Mit maßgeschneiderten Brand-Videos, Drohnenaufnahmen und Video-Podcasts fördern wir Kundenbindung und Markenbekanntheit. Entdecken Sie die Kraft der visuellen Kommunikation.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={12} mt={1}>
                                 <Button variant='contained'>Direkt loslegen</Button>
                             </Grid>
                         </Grid>

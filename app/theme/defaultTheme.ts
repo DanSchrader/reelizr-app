@@ -42,9 +42,9 @@ const themeOptions: ThemeOptions = {
             },
         },
         body1: {
-            fontSize: '0.8rem',
+            fontSize: '1rem',
             '@media (min-width:600px)': {
-                fontSize: '1rem',
+                fontSize: '1.1rem',
             },
             [baseTheme.breakpoints.up('md')]: {
                 fontSize: '1.2rem',
