@@ -25,7 +25,7 @@ const themeOptions: ThemeOptions = {
         h1: {
             fontSize: '1.6rem',
             '@media (min-width:600px)': {
-                fontSize: '2rem',
+                fontSize: '1.6rem',
             },
             [baseTheme.breakpoints.up('md')]: {
                 fontSize: '2.8rem',
@@ -35,7 +35,7 @@ const themeOptions: ThemeOptions = {
         h2: {
             fontSize: '0.9rem',
             '@media (min-width:600px)': {
-                fontSize: '1.2rem',
+                fontSize: '0.9rem',
             },
             [baseTheme.breakpoints.up('md')]: {
                 fontSize: '1.5rem',
