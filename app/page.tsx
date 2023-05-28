@@ -35,8 +35,6 @@ export default function Home() {
                         component='img' 
                         src='./hero-logo.webp' 
                         alt='Reelizr-Logo'
-                        width='75%'
-                        height='auto'
                         sx={{
                             height:'auto',
                             width: {
