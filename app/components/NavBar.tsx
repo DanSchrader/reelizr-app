@@ -20,7 +20,6 @@ import Button from '@mui/material/Button';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import Link from 'next/link';
 import Pages from './Pages';
 
 const drawerWidth = 240;
@@ -56,13 +55,15 @@ export default function NavBar() {
         {Pages.map((item) => (
           <Box key={item.id}>
             <ListItem key={item.id} disablePadding>
-              <ListItemButton 
-              sx={{ textAlign: 'center', justifyContent: 'flex-start' }}
+              <ListItemButton
+              component='a'
+              href={item.slug} 
               onClick={handleDrawerToggle}
+              sx={{ 
+                textAlign: 'flex-start',
+              }}
               >
-                <Link href={item.slug}>
-                  <ListItemText primary={item.title} />
-                </Link>
+                <ListItemText primary={item.title} />
               </ListItemButton>
               {item.subPages && (drawerListOpen ? (
                 <ListItemButton onClick={handleDrawerListClick}>
@@ -82,12 +83,12 @@ export default function NavBar() {
                   {item.subPages.map((subPage) => (
                     <ListItem key={subPage.id}>
                       <ListItemButton 
-                      sx={{ pl: 4 }}
+                      component='a'
+                      href={subPage.slug}
                       onClick={handleDrawerToggle}
+                      sx={{ pl: 4 }}
                       >
-                        <Link href={subPage.slug}>
-                          {subPage.title}
-                        </Link>
+                        {subPage.title}
                       </ListItemButton>
                     </ListItem>
                   ))}
@@ -128,12 +129,12 @@ export default function NavBar() {
           }}>
             {Pages.map((item) => (
               <Box key={item.id}>
-                <Button sx={{
+                <Button 
+                href={item.slug}
+                sx={{
                   color: '#fefbe4',
                 }}>
-                  <Link href={item.slug}>
-                    {item.title}
-                  </Link>
+                  {item.title}
                 </Button>
                 {item.subPages 
                   ? <IconButton 
@@ -164,10 +165,12 @@ export default function NavBar() {
                 page.subPages
                 ? page.subPages.map((subPage) => (
                   <MenuItem key={subPage.id} onClick={handleDropdownClose}>
-                    <Button sx={{
+                    <Button 
+                    href={subPage.slug}
+                    sx={{
                       color: '#fefbe4',
                     }}>
-                      <Link href={subPage.slug}>{subPage.title}</Link>
+                      {subPage.title}
                     </Button>
                   </MenuItem>
                 ))
@@ -184,7 +187,7 @@ export default function NavBar() {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'flex', sm: 'none' },
