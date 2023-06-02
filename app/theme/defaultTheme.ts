@@ -14,7 +14,7 @@ const themeOptions: ThemeOptions = {
         },
         background: {
             default: '#1f1f1f',
-            /* paper: '#2c2a29' */
+            paper: '#121212'
         },
         text: {
             primary: '#fefbe4',
@@ -33,12 +33,22 @@ const themeOptions: ThemeOptions = {
             fontWeight: 700,
         },
         h2: {
-            fontSize: '0.9rem',
+            fontSize: '1.2rem',
             '@media (min-width:600px)': {
-                fontSize: '0.9rem',
+                fontSize: '1.2rem',
             },
             [baseTheme.breakpoints.up('md')]: {
-                fontSize: '1.5rem',
+                fontSize: '1.8rem',
+            },
+            fontWeight: 400,  
+        },
+        h3: {
+            fontSize: '1.1rem',
+            '@media (min-width:600px)': {
+                fontSize: '1.2rem',
+            },
+            [baseTheme.breakpoints.up('md')]: {
+                fontSize: '1.6rem',
             },
         },
         body1: {

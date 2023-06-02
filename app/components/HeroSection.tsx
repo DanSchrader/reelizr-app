@@ -50,7 +50,7 @@ export default function HeroSection() {
                             },
                         }}>
                             <Grid item xs={12}>
-                                <Typography component='h2' variant='h2' color='secondary'>
+                                <Typography component='h3' variant='h3' color='secondary'>
                                         #REELIZR
                                 </Typography>
                             </Grid>

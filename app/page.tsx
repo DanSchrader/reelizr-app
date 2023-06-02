@@ -1,10 +1,10 @@
 'use client';
 
 import Head from 'next/head';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import HeroSection from './components/HeroSection';
+import InfoSection from './components/InfoSection';
 
 export default function Home() {
     return (
@@ -27,11 +27,7 @@ export default function Home() {
             </Head>
             <Box component='main'>
                 <HeroSection />
-                <Typography>
-                    Steigern Sie Ihren Brand-Value: <br /> 
-                    Mit maßgeschneiderten Brand-Videos, Drohnenaufnahmen und Video-Podcasts fördern wir Kundenbindung und Markenbekanntheit. <br /> 
-                    Entdecken Sie die Kraft der visuellen Kommunikation.
-                </Typography>    
+                <InfoSection />  
             </Box>
         </>
     )
