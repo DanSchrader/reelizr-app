@@ -67,7 +67,7 @@ export default function HeroSection() {
                                         md: '0',
                                     },
                                     }}>
-                                        Willkommen bei Reelizr, Ihrer Video Marketing Agentur. 
+                                        Willkommen bei Reelizr, der Video Marketing Agentur. 
                                         Wir verwandeln Ihre Vision in aufregendes Content Video Marketing. 
                                         Nutzen Sie mit uns für Ihr Marketing Youtube - eine der größten Suchmaschinen der Welt.
                                 </Typography>
