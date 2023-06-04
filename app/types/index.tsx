@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+/* import { ReactNode } from 'react'; */
 
 export interface Page {
     title: string,
@@ -8,8 +8,15 @@ export interface Page {
     isActive?: boolean,
 };
 
-export interface TabPanelProps {
+/* export interface TabPanelProps {
     children?: ReactNode,
     index: number,
     value: number,
-}
+} */
+
+export interface InfoCard {
+    icon: JSX.Element,
+    title: string,
+    text: string,
+    id: string,
+};
