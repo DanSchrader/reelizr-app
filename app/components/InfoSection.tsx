@@ -10,7 +10,7 @@ export default function InfoSection () {
             <Paper elevation={4}>
                 <Grid container p={2} spacing={2}>
                     {InfoCards.map((card) => (
-                        <Grid key={card.id} item xs={12} md={6} lg={3}>
+                        <Grid key={card.id} item xs={12} md={4}>
                             <Grid container direction='column' spacing={1}>
                                 <Grid item sx={{ textAlign: 'center' }}>
                                     {card.icon}
@@ -21,7 +21,7 @@ export default function InfoSection () {
                                     </Typography>}
                                 </Grid>
                                 <Grid item sx={{ textAlign: 'center' }}>
-                                    <Typography> 
+                                    <Typography sx={{ width: '80%', margin: '0 auto' }}> 
                                         {card.text}
                                     </Typography>
                                 </Grid>

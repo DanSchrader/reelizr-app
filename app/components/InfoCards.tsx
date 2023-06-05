@@ -30,12 +30,6 @@ const InfoCards: InfoCard[] = [
         text: 'Mit kreativen Video-Inhalten, eindringlichen Geschichten und emotionalem Storytelling wecken wir Interesse und Emotionen bei Ihrer Zielgruppe.',
         id: 'storytelling-expertise',
     },
-    {
-        icon: share,
-        title: 'SOCIAL MEDIA',
-        text: 'Mit innovativen Social-Media-Kampagnen, viralem Content und gezieltem Community Management vergrößern wir Ihre digitale Reichweite.',
-        id: 'social-media-dominanz',
-    },
 ];
 
 export default InfoCards;
