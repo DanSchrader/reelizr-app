@@ -59,8 +59,25 @@ const themeOptions: ThemeOptions = {
             [baseTheme.breakpoints.up('md')]: {
                 fontSize: '1.2rem',
             },
-        }
+        },
     },
+    components: {
+        MuiLink: {
+          styleOverrides: {
+            root: {
+              fontSize: '1rem',
+              '@media (min-width:600px)': {
+              fontSize: '1.1rem',
+              },
+              [baseTheme.breakpoints.up('md')]: {
+              fontSize: '1.2rem',
+          },
+              color: 'inherit',
+              textDecoration: 'none',
+            },
+          },
+        },
+      },
 };
 
 export default createTheme(themeOptions);

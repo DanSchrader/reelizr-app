@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 
 import AppBar from '@mui/material/AppBar';
@@ -199,4 +197,4 @@ export default function NavBar() {
       </Box>
     </Box>
   );
-}
+};

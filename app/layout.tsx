@@ -2,8 +2,11 @@
 
 import './globals.css';
 import defaultTheme from './theme/defaultTheme';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 export default function RootLayout({
   children,
@@ -12,13 +15,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <body>
+      <Box component='body'>
         <ThemeProvider theme={defaultTheme}>
           <CssBaseline />
           <NavBar />
-          {children}
+          <Box component='main'>
+            {children}
+          </Box>
+          <Footer />
         </ThemeProvider>
-      </body>
+      </Box>
     </html>
   );
 };
