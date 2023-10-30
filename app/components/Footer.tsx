@@ -12,7 +12,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 export default function Footer() {
     return (
         <Box component='section'>
-            <Paper elevation={4} >
             <Box sx={{
                     display: 'flex',
                     justifyContent: {
@@ -134,7 +133,6 @@ export default function Footer() {
                   </Grid>
               </Grid> 
               </Box> 
-          </Paper>
       </Box>
     )
   };
