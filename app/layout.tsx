@@ -4,6 +4,7 @@ import './globals.css';
 import defaultTheme from './theme/defaultTheme';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -15,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <Box component='body'>
+      <Container component='body' maxWidth='md'>
         <ThemeProvider theme={defaultTheme}>
           <CssBaseline />
           <NavBar />
@@ -24,7 +25,7 @@ export default function RootLayout({
           </Box>
           <Footer />
         </ThemeProvider>
-      </Box>
+      </Container>
     </html>
   );
 };

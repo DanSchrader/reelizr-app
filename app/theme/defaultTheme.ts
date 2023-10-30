@@ -54,10 +54,10 @@ const themeOptions: ThemeOptions = {
         body1: {
             fontSize: '1rem',
             '@media (min-width:600px)': {
-                fontSize: '1.1rem',
+                fontSize: '0.8rem',
             },
             [baseTheme.breakpoints.up('md')]: {
-                fontSize: '1.2rem',
+                fontSize: '1rem',
             },
         },
     },
